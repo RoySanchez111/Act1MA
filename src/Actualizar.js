@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./App.css";
 
 function Actualizar() {
-  const navigate = useNavigate();
 
   return (
     <div className="actualizar-container">
