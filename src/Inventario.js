@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { FaFilter } from "react-icons/fa"; // 👈 Importamos el icono desde react-icons
+import { FaFilter } from "react-icons/fa";
 import "./App.css";
 import jamonFud from "./jamonFud290g.webp";
 import cocacola from "./cocacola600ml.webp";
 
 function Inventario() {
   const [mostrarFiltro, setMostrarFiltro] = useState(false);
+  const filtroRef = useRef(null);
 
   const productos = [
     {
@@ -141,7 +142,35 @@ function Inventario() {
       stockMinimo: 5,
       imagen: cocacola,
     },
+    {
+      id: 2,
+      nombre: "Coca Cola",
+      precio: "$25",
+      descripcion: "Refresco muy rico",
+      categoria: "Refrescos",
+      unidad: "600 ml",
+      stock: 50,
+      stockMinimo: 5,
+      imagen: cocacola,
+    },
   ];
+
+  // 👇 Detecta clics fuera del menú para cerrarlo
+  useEffect(() => {
+    function manejarClickFuera(event) {
+      if (filtroRef.current && !filtroRef.current.contains(event.target)) {
+        setMostrarFiltro(false);
+      }
+    }
+
+    if (mostrarFiltro) {
+      document.addEventListener("mousedown", manejarClickFuera);
+    } else {
+      document.removeEventListener("mousedown", manejarClickFuera);
+    }
+
+    return () => document.removeEventListener("mousedown", manejarClickFuera);
+  }, [mostrarFiltro]);
 
   return (
     <div className="inventario-container">
@@ -171,11 +200,11 @@ function Inventario() {
         </div>
       </header>
 
-      {/* 🔹 Barra de búsqueda con icono de filtro */}
-      <div className="buscador-container">
+      {/* 🔹 Barra de búsqueda con filtro */}
+      <div className="buscador-container" ref={filtroRef}>
         <input type="text" placeholder="Buscar" />
 
-        {/* Icono de filtro (usa react-icons) */}
+        {/* Ícono del filtro */}
         <div
           className="filtro-icono"
           onClick={() => setMostrarFiltro(!mostrarFiltro)}
@@ -195,7 +224,7 @@ function Inventario() {
         )}
       </div>
 
-      {/* 🔹 Tabla de productos */}
+      {/* 🔹 Tabla del inventario */}
       <section className="tabla-section">
         <table className="tabla-inventario">
           <thead>
