@@ -1,38 +1,416 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+/* =======================================================
+   RESET Y CONFIGURACIÃ“N GLOBAL
+======================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* =======================================================
+   BARRA DE NAVEGACIÃ“N FIJA
+======================================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(128, 0, 32);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.punto-venta {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+.nav-botones {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.navbar .btn {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.navbar .btn:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* =======================================================
+   ENCABEZADO PRINCIPAL (Inventario)
+======================================================= */
+.inventario-header {
+  /* background-image: url('/Images/Inventario.jpg'); */ /* Comentado para evitar error */
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  position: relative;
+  color: white;
+  margin-top: 0;
+  padding-top: 80px;
+}
+.header-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo {
+  font-size: 6rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* =======================================================
+   BOTONES GENERALES
+======================================================= */
+.btn {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn.Ventas {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.btn.Ventas:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.05);
+}
+
+.btn.inventario,
+.btn.agregar-btn,
+.btn.eliminar-btn,
+.btn.actualizar-btn {
+  background-color: rgb(128, 0, 32);
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.btn.inventario:hover,
+.btn.agregar-btn:hover,
+.btn.eliminar-btn:hover,
+.btn.actualizar-btn:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+/* =======================================================
+   BARRA DE BUSQUEDA
+======================================================= */
+.buscador-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  background: rgb(128, 0, 32);
+}
+
+.buscador-container input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  padding: 0.3rem;
+}
+
+.buscador-container input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* =======================================================
+   TABLA DE INVENTARIO
+======================================================= */
+.tabla-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.tabla-inventario {
+  border-collapse: collapse;
+  width: 90%;
+  max-width: 1100px;
+  text-align: left;
+  background-color: #2b2b2b;
+  color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabla-inventario th,
+.tabla-inventario td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #444;
+}
+
+.tabla-inventario th {
+  background-color: #1a1a1a;
+  font-weight: bold;
+}
+
+.imagen-producto {
+  width: 90px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* =======================================================
+   FORMULARIOS BASE
+======================================================= */
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* =======================================================
+   SECCIÃ“N: AGREGAR
+======================================================= */
+.agregar-container {
+  padding: 140px 40px 60px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.titulo-agregar {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: rgb(128, 0, 32);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form-agregar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 90px;
+  row-gap: 40px;
+  max-width: 1000px;
+  margin-bottom: 40px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* =======================================================
+   SECCIÃ“N: ELIMINAR
+======================================================= */
+.eliminar-container {
+  font-family: Arial, sans-serif;
+  padding: 140px 40px 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo-eliminar {
+  font-size: 48px;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: rgb(128, 0, 32);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.form-eliminar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-grid-eliminar {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 90px;
+  row-gap: 40px;
+  max-width: 1000px;
+  margin-bottom: 40px;
+}
+
+.form-group-eliminar {
+  text-align: left;
+}
+
+.form-group-eliminar label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-group-eliminar input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* =======================================================
+   SECCIÃ“N: ACTUALIZAR
+======================================================= */
+.actualizar-container {
+  font-family: Arial, sans-serif;
+  padding: 140px 40px 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actualizar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.titulo-actualizar {
+  font-size: 48px;
+  font-weight: bold;
+  color: rgb(128, 0, 32);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.subtitulo-actualizar {
+  color: gray;
+  margin-bottom: 30px;
+}
+
+.form-actualizar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-grid-actualizar {
+  display: grid;
+  grid-template-columns: repeat(2, 250px);
+  gap: 20px 40px;
+  margin-bottom: 30px;
+}
+
+.form-group-actualizar {
+  text-align: left;
+}
+
+.form-group-actualizar label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group-actualizar input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* =======================================================
+   ESTILOS RESPONSIVOS
+======================================================= */
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 2.2rem;
+    text-align: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .nav-botones {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar .btn {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+
+  .titulo-agregar,
+  .titulo-eliminar,
+  .titulo-actualizar {
+    font-size: 2rem;
+  }
+
+  .tabla-inventario {
+    font-size: 0.9rem;
+  }
+
+  .imagen-producto {
+    width: 70px;
   }
 }

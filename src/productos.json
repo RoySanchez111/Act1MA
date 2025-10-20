@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "nombre": "Jamón de Pavo Virginia",
+    "precio": "$45",
+    "descripcion": "Jamón muy rico de pavo",
+    "categoria": "Alimento Procesado",
+    "unidad": "290 Gramos",
+    "stock": 50,
+    "stockMinimo": 5,
+    "imagen": "/Images/jamonFud290g.webp"
+  },
+  {
+    "id": 2,
+    "nombre": "Coca Cola",
+    "precio": "$25",
+    "descripcion": "Refresco muy rico",
+    "categoria": "Refrescos",
+    "unidad": "600 ml",
+    "stock": 50,
+    "stockMinimo": 5,
+    "imagen": "/Images/cocacola600ml.webp"
+  },
+  {
+    "id": 3,
+    "nombre": "Coca Cola Light",
+    "precio": "$25",
+    "descripcion": "Refresco light muy rico",
+    "categoria": "Refrescos",
+    "unidad": "600 ml",
+    "stock": 30,
+    "stockMinimo": 5,
+    "imagen": "/Images/cocacola600ml.webp"
+  }
+]
