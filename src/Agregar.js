@@ -16,7 +16,7 @@ function Agregar() {
           <Link to="/eliminar" className="btn">
             Eliminar Productos
           </Link>
-          <Link to="/" className="btn">
+          <Link to="/inventario" className="btn">
             Inventario
           </Link>
         </div>

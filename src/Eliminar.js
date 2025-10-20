@@ -16,7 +16,7 @@ function Eliminar() {
           <Link to="/agregar" className="btn">
             Agregar Productos
           </Link>
-          <Link to="/" className="btn">
+          <Link to="/inventario" className="btn">
             Inventario
           </Link>
         </div>

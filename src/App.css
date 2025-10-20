@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
 /* =======================================================
-   RESET Y CONFIGURACIÃ“N GLOBAL
+   RESET Y CONFIGURACIÓN GLOBAL
 ======================================================= */
 * {
   margin: 0;
@@ -16,7 +17,7 @@ html, body {
 }
 
 /* =======================================================
-   BARRA DE NAVEGACIÃ“N FIJA
+   BARRA DE NAVEGACIÓN FIJA
 ======================================================= */
 .navbar {
   position: fixed;
@@ -73,7 +74,7 @@ html, body {
    ENCABEZADO PRINCIPAL (Inventario)
 ======================================================= */
 .inventario-header {
-  /* background-image: url('/Images/Inventario.jpg'); */ /* Comentado para evitar error */
+  background-image: url("Inventario.jpg");
   background-size: cover;
   background-position: center;
   height: 500px;
@@ -82,6 +83,7 @@ html, body {
   margin-top: 0;
   padding-top: 80px;
 }
+
 .header-overlay {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -124,27 +126,34 @@ html, body {
 .btn.inventario,
 .btn.agregar-btn,
 .btn.eliminar-btn,
+.btn.iniciar-btn,
 .btn.actualizar-btn {
   background-color: rgb(128, 0, 32);
-  color: rgb(255, 255, 255);
+  color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
   font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
 .btn.inventario:hover,
 .btn.agregar-btn:hover,
 .btn.eliminar-btn:hover,
+.btn.iniciar-btn,
 .btn.actualizar-btn:hover {
   background-color: #333;
   transform: scale(1.05);
+  text-decoration: none;
 }
 
 /* =======================================================
-   BARRA DE BUSQUEDA
+   BUSCADOR + FILTRO
 ======================================================= */
 .buscador-container {
+  position: relative;
   width: 100%;
   max-width: 600px;
   display: flex;
@@ -161,13 +170,54 @@ html, body {
   border: none;
   outline: none;
   background: transparent;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 1rem;
   padding: 0.3rem;
 }
 
 .buscador-container input::placeholder {
   color: rgba(255, 255, 255, 0.7);
+}
+
+.filtro-icono {
+  color: white;
+  font-size: 1.3rem;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.filtro-icono:hover {
+  transform: scale(1.2);
+}
+
+.filtro-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 0;
+  width: 200px;
+  z-index: 10;
+}
+
+.filtro-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filtro-dropdown li {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: rgb(80, 0, 20);
+  transition: background 0.2s;
+}
+
+.filtro-dropdown li:hover {
+  background: rgba(128, 0, 32, 0.1);
 }
 
 /* =======================================================
@@ -184,8 +234,8 @@ html, body {
   width: 90%;
   max-width: 1100px;
   text-align: left;
-  background-color: #2b2b2b;
-  color: white;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -197,8 +247,9 @@ html, body {
 }
 
 .tabla-inventario th {
-  background-color: #1a1a1a;
+  background-color: rgb(128, 0, 32);
   font-weight: bold;
+  color: rgb(255, 255, 255)
 }
 
 .imagen-producto {
@@ -228,7 +279,74 @@ html, body {
 }
 
 /* =======================================================
-   SECCIÃ“N: AGREGAR
+   SECCIÓN: Iniciar Sesion
+======================================================= */
+
+.Inicio-container {
+  font-family: Arial, sans-serif;
+  padding: 140px 40px 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.punto-venta-inicio {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+.titulo-Inicio {
+  font-size: 48px;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: rgb(128, 0, 32);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.form-Inicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-grid-Inicio {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 90px;
+  row-gap: 40px;
+  max-width: 1000px;
+  margin-bottom: 40px;
+}
+
+.form-group-Inicio {
+  text-align: left;
+}
+
+.form-group-Inicio label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-group-Inicio input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+
+/* =======================================================
+   SECCIÓN: AGREGAR
 ======================================================= */
 .agregar-container {
   padding: 140px 40px 60px;
@@ -259,7 +377,7 @@ html, body {
 }
 
 /* =======================================================
-   SECCIÃ“N: ELIMINAR
+   SECCIÓN: ELIMINAR
 ======================================================= */
 .eliminar-container {
   font-family: Arial, sans-serif;
@@ -312,7 +430,7 @@ html, body {
 }
 
 /* =======================================================
-   SECCIÃ“N: ACTUALIZAR
+   SECCIÓN: ACTUALIZAR
 ======================================================= */
 .actualizar-container {
   font-family: Arial, sans-serif;
