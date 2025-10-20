@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaFilter } from "react-icons/fa";
 import "./App.css";
 import jamonFud from "./jamonFud290g.webp";
