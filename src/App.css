@@ -127,6 +127,7 @@ html, body {
 .btn.agregar-btn,
 .btn.eliminar-btn,
 .btn.iniciar-btn,
+.btn.ventas-btn,
 .btn.actualizar-btn {
   background-color: rgb(128, 0, 32);
   color: white;
@@ -487,6 +488,126 @@ html, body {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+/* =======================================================
+   SECCIÓN: Ventas
+======================================================= */
+:root{
+  --vino:#7a001f;
+  --vino-2:#921335;
+  --gris-borde:#e3c9d2;
+}
+
+/* Shell a pantalla completa: header | contenido | bottom bar */
+.pv-shell{
+  min-height:100vh;
+  display:grid;
+  grid-template-rows: 80px 1fr 70px;
+  gap: 12px;
+  padding: 16px;
+  background:#fff;
+}
+
+/* Header */
+.pv-header{
+  display:flex; align-items:center; justify-content:space-between;
+}
+.pv-brand{
+  font-family:'Poppins', sans-serif;
+  font-size: 2.4rem; font-weight:700; color:var(--vino);
+  text-shadow: 4px 6px 0 rgba(122,0,31,.15);
+}
+.pv-header .right{ display:flex; gap:12px; }
+
+/* Contenido principal: tabla grande + sidebar */
+.pv-main{
+  display:grid;
+  grid-template-columns: 1fr 300px;
+  gap: 16px;
+  min-height:0;           /* importante para que el área pueda scrollear */
+}
+
+/* Tabla tipo ticket */
+.pv-table{
+  border:1px solid var(--gris-borde);
+  border-radius:10px;
+  display:grid;
+  grid-template-rows: auto 1fr;
+  overflow:hidden;
+}
+.pv-head{
+  display:grid;
+  grid-template-columns: 120px 1fr 160px 160px;
+  background:var(--vino);
+  color:#fff;
+  font-weight:700;
+  padding:10px 12px;
+}
+.pv-rows{
+  overflow:auto;         /* scrollea dentro y no rompe el layout */
+  border-left:1px solid var(--gris-borde);
+  border-right:1px solid var(--gris-borde);
+}
+.pv-row{
+  display:grid;
+  grid-template-columns: 120px 1fr 160px 160px;
+  padding:10px 12px;
+  border-bottom:1px solid var(--gris-borde);
+  cursor:pointer;
+}
+.pv-row:nth-child(odd){ background:#fff; }
+.pv-row:nth-child(even){ background:#faf6f7; }
+.pv-row.is-selected{
+  outline:2px solid rgba(122,0,31,.35);
+  background:#fff2f5;
+}
+
+/* Sidebar de acciones */
+.pv-side{
+  display:grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap:16px;
+}
+.pv-card{
+  background:#d0e4b9;    /* verde */
+  border-radius:18px;
+  padding:22px;
+  box-shadow: 0 6px 0 rgba(0,0,0,.12) inset, 0 4px 12px rgba(0,0,0,.08);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700;
+  font-size:1.05rem;
+  cursor:pointer;
+}
+.pv-card.purple{ background:#edc5f6; }
+
+.pv-card.red {
+  background: #ffb3b3;
+}
+.pv-card.red:hover {
+  background: #ff8c8c;
+}
+
+/* Barra inferior */
+.pv-bottom{
+  background:var(--vino);
+  color:#fff;
+  border-radius:10px;
+  display:grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items:center;
+  padding:10px 16px;
+  gap:12px;
+}
+.pv-exit{
+  justify-self:end;
+  background:#7a001f;
+  border:none; color:#fff;
+  padding:12px 28px; border-radius:12px;
+  font-weight:700; cursor:pointer;
+  box-shadow: 0 2px 0 rgba(0,0,0,.25) inset;
+  text-decoration: none;
+}
+
 
 /* =======================================================
    ESTILOS RESPONSIVOS

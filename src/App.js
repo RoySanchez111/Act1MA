@@ -5,6 +5,7 @@ import Inventario from "./Inventario";
 import Agregar from "./Agregar";
 import Actualizar from "./Actualizar";
 import Eliminar from "./Eliminar";
+import Ventas from "./Ventas";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/agregar" element={<Agregar />} />
         <Route path="/actualizar" element={<Actualizar />} />
         <Route path="/eliminar" element={<Eliminar />} />
+        <Route path="/ventas" element={<Ventas />} />
       </Routes>
     </Router>
   );
@@ -43,7 +45,7 @@ function Inicio() {
           </div>
         </div>
 
-        <Link to="/inventario" className="btn iniciar-btn">
+        <Link to="/ventas" className="btn iniciar-btn">
           Iniciar Sesión
         </Link>
       </form>
