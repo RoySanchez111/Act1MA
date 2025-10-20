@@ -3,6 +3,10 @@ import "./App.css";
 
 function Eliminar() {
 
+  const handleConfirm = () => {
+    alert("🗑️ Producto eliminado exitosamente."); 
+  };
+
   return (
     <div className="eliminar-container">
       <nav className="navbar">
@@ -36,7 +40,7 @@ function Eliminar() {
           </div>
         </div>
 
-        <button type="submit" className="btn eliminar-btn">
+        <button type="submit" className="btn eliminar-btn" onClick={handleConfirm}>
           Eliminar Producto
         </button>
       </form>

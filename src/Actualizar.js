@@ -3,6 +3,10 @@ import "./App.css";
 
 function Actualizar() {
 
+  const handleConfirm = () => {
+    alert("✅ Producto actualizado exitosamente."); 
+  };
+
   return (
     <div className="actualizar-container">
       <nav className="navbar">
@@ -49,7 +53,7 @@ function Actualizar() {
           </div>
         </div>
 
-        <button type="submit" className="btn actualizar-btn">
+        <button type="submit" className="btn actualizar-btn" onClick={handleConfirm}>
           Actualizar Producto
         </button>
       </form>

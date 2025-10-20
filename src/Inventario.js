@@ -32,127 +32,6 @@ function Inventario() {
       stockMinimo: 5,
       imagen: cocacola,
     },
-    {
-      id: 2,
-      nombre: "Coca Cola",
-      precio: "$25",
-      descripcion: "Refresco muy rico",
-      categoria: "Refrescos",
-      unidad: "600 ml",
-      stock: 50,
-      stockMinimo: 5,
-      imagen: cocacola,
-    },
-    {
-      id: 2,
-      nombre: "Coca Cola",
-      precio: "$25",
-      descripcion: "Refresco muy rico",
-      categoria: "Refrescos",
-      unidad: "600 ml",
-      stock: 50,
-      stockMinimo: 5,
-      imagen: cocacola,
-    },
-    {
-      id: 2,
-      nombre: "Coca Cola",
-      precio: "$25",
-      descripcion: "Refresco muy rico",
-      categoria: "Refrescos",
-      unidad: "600 ml",
-      stock: 50,
-      stockMinimo: 5,
-      imagen: cocacola,
-    },
-    {
-      id: 2,
-      nombre: "Coca Cola",
-      precio: "$25",
-      descripcion: "Refresco muy rico",
-      categoria: "Refrescos",
-      unidad: "600 ml",
-      stock: 50,
-      stockMinimo: 5,
-      imagen: cocacola,
-    },
-    {
-      id: 2,
-      nombre: "Coca Cola",
-      precio: "$25",
-      descripcion: "Refresco muy rico",
-      categoria: "Refrescos",
-      unidad: "600 ml",
-      stock: 50,
-      stockMinimo: 5,
-      imagen: cocacola,
-    },
-    {
-      id: 2,
-      nombre: "Coca Cola",
-      precio: "$25",
-      descripcion: "Refresco muy rico",
-      categoria: "Refrescos",
-      unidad: "600 ml",
-      stock: 50,
-      stockMinimo: 5,
-      imagen: cocacola,
-    },
-    {
-      id: 2,
-      nombre: "Coca Cola",
-      precio: "$25",
-      descripcion: "Refresco muy rico",
-      categoria: "Refrescos",
-      unidad: "600 ml",
-      stock: 50,
-      stockMinimo: 5,
-      imagen: cocacola,
-    },
-    {
-      id: 2,
-      nombre: "Coca Cola",
-      precio: "$25",
-      descripcion: "Refresco muy rico",
-      categoria: "Refrescos",
-      unidad: "600 ml",
-      stock: 50,
-      stockMinimo: 5,
-      imagen: cocacola,
-    },
-    {
-      id: 2,
-      nombre: "Coca Cola",
-      precio: "$25",
-      descripcion: "Refresco muy rico",
-      categoria: "Refrescos",
-      unidad: "600 ml",
-      stock: 50,
-      stockMinimo: 5,
-      imagen: cocacola,
-    },
-    {
-      id: 2,
-      nombre: "Coca Cola",
-      precio: "$25",
-      descripcion: "Refresco muy rico",
-      categoria: "Refrescos",
-      unidad: "600 ml",
-      stock: 50,
-      stockMinimo: 5,
-      imagen: cocacola,
-    },
-    {
-      id: 2,
-      nombre: "Coca Cola",
-      precio: "$25",
-      descripcion: "Refresco muy rico",
-      categoria: "Refrescos",
-      unidad: "600 ml",
-      stock: 50,
-      stockMinimo: 5,
-      imagen: cocacola,
-    },
   ];
 
   // 👇 Detecta clics fuera del menú para cerrarlo
@@ -202,7 +81,7 @@ function Inventario() {
 
       {/* 🔹 Barra de búsqueda con filtro */}
       <div className="buscador-container" ref={filtroRef}>
-        <input type="text" placeholder="Buscar" />
+        <input type="text" placeholder="Buscar" className="buscador-input" />
 
         {/* Ícono del filtro */}
         <div
@@ -226,6 +105,7 @@ function Inventario() {
 
       {/* 🔹 Tabla del inventario */}
       <section className="tabla-section">
+        <div className="tabla-responsive-wrapper">
         <table className="tabla-inventario">
           <thead>
             <tr>
@@ -262,6 +142,7 @@ function Inventario() {
             ))}
           </tbody>
         </table>
+        </div>
       </section>
     </div>
   );

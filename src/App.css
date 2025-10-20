@@ -155,11 +155,11 @@ html, body {
 ======================================================= */
 .buscador-container {
   position: relative;
-  width: 100%;
+  width: 90%;
   max-width: 600px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin: 40px auto;
   padding: 0.5rem 1rem;
   border-radius: 25px;
@@ -167,7 +167,7 @@ html, body {
 }
 
 .buscador-container input {
-  width: 100%;
+  flex-grow: 1;
   border: none;
   outline: none;
   background: transparent;
@@ -186,6 +186,7 @@ html, body {
   margin-left: 10px;
   cursor: pointer;
   transition: transform 0.2s;
+  padding: 5px;
 }
 
 .filtro-icono:hover {
@@ -227,13 +228,19 @@ html, body {
 .tabla-section {
   display: flex;
   justify-content: center;
-  margin: 40px 0;
+  margin: 40px 10px
+}
+
+.tabla-responsive-wrapper {
+ width: 100%;
+ overflow-x: auto; /* Habilita el scroll horizontal si la tabla es más ancha que la pantalla */
+ -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
 }
 
 .tabla-inventario {
   border-collapse: collapse;
-  width: 90%;
-  max-width: 1100px;
+  width: 100%;
+  max-width: 900px;
   text-align: left;
   background-color: transparent;
   color: rgb(0, 0, 0);
@@ -245,6 +252,7 @@ html, body {
 .tabla-inventario td {
   padding: 12px 15px;
   border-bottom: 1px solid #444;
+  white-space: nowrap; /* Evita que el contenido de las celdas se rompa en varias líneas */
 }
 
 .tabla-inventario th {
@@ -619,24 +627,30 @@ html, body {
   }
 
   .navbar {
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px;
+    flex-direction: column; /* Apila el título y los botones */
+    align-items: center;
+    padding: 15px 10px; /* Reducir padding horizontal */
+    position: relative; /* Quitar fixed en móvil para evitar que ocupe demasiado espacio */
   }
 
   .nav-botones {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 8px; /* Reducir el espacio entre botones */
+    width: 100%; /* Ocupar todo el ancho */
+    margin-top: 10px;
   }
 
   .navbar .btn {
     padding: 8px 16px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    flex-grow: 1; /* Permite que los botones crezcan y llenen el espacio */
+    min-width: 40%; /* Asegura que no sean demasiado pequeños */
   }
 
-  .form-grid {
-    grid-template-columns: 1fr;
-    padding: 0 20px;
+  .inventario-header {
+    height: 300px; /* Reducir altura del encabezado */
+    padding-top: 0;
   }
 
   .titulo-agregar,
@@ -645,11 +659,68 @@ html, body {
     font-size: 2rem;
   }
 
+  .form-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    max-width: 100%;
+  }
+
+  .form-grid-actualizar {
+    grid-template-columns: 1fr; /* Columna única para el formulario de Actualizar */
+    gap: 20px;
+    padding: 0 10px;
+    max-width: 100%;
+  }
+
+  .tabla-section {
+    padding: 0 5px;
+    margin: 20px 0;
+  }
+
   .tabla-inventario {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .tabla-inventario th,
+  .tabla-inventario td {
+    padding: 8px 10px; /* Reducir padding */
   }
 
   .imagen-producto {
-    width: 70px;
+    width: 60px;
+    max-width: 60px;
+    height: auto;
+  }
+
+  .pv-shell {
+    grid-template-rows: auto 1fr auto; /* Ajuste más flexible */
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .pv-brand {
+    font-size: 1.6rem;
+  }
+
+  .pv-main {
+    grid-template-columns: 1fr; /* Apilar tabla y sidebar verticalmente */
+    grid-template-rows: 1fr auto;
+  }
+
+  .pv-side {
+    grid-template-rows: auto;
+    gap: 10px;
+    grid-auto-flow: column; /* Colocar las tarjetas del sidebar una al lado de la otra */
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+
+  .pv-card {
+    min-width: 180px; /* Asegura que las tarjetas sean visibles y tengan un tamaño mínimo */
+  }
+
+  .pv-head, .pv-row {
+    grid-template-columns: 80px 1fr 100px 100px; /* Reducir el ancho de las columnas */
+    font-size: 0.85rem;
   }
 }

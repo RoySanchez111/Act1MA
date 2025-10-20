@@ -3,6 +3,10 @@ import "./App.css";
 
 function Agregar() {
 
+  const handleConfirm = () => {
+    alert("➕ Producto agregado exitosamente al inventario."); 
+  };
+
   return (
     <div className="agregar-container">
       <nav className="navbar">
@@ -71,7 +75,7 @@ function Agregar() {
           </div>
         </div>
 
-        <button type="submit" className="btn agregar-btn">
+        <button type="submit" className="btn agregar-btn" onClick={handleConfirm}>
           Agregar Producto
         </button>
       </form>
