@@ -12,6 +12,10 @@ function Inventario() {
   const [categoria, setCategoria] = useState("Todas las categorías");
   const filtroRef = useRef(null);
 
+  // Obtener el rol del usuario desde localStorage
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  const esAdmin = usuario?.rol === "Administrador";
+
   // Filtrar productos
   const productosFiltrados = productos.filter((p) => {
     const coincideBusqueda = p.nombre.toLowerCase().includes(busqueda.toLowerCase());
@@ -43,10 +47,14 @@ function Inventario() {
       <nav className="navbar">
         <h2 className="punto-venta">SupMis</h2>
         <div className="nav-botones">
-          <Link to="/actualizar" className="btn">Actualizar Productos</Link>
-          <Link to="/agregar" className="btn">Agregar Productos</Link>
-          <Link to="/eliminar" className="btn">Eliminar Productos</Link>
-          <Link to="/ventas" className="btn">Ventas</Link>
+          {esAdmin && (
+            <>
+              <Link to="/actualizar" className="btn">Actualizar Productos</Link>
+              <Link to="/agregar" className="btn">Agregar Productos</Link>
+              <Link to="/eliminar" className="btn">Eliminar Productos</Link>
+            </>
+          )}
+          <Link to={esAdmin ? "/ventas" : "/ventas"} className="btn">Ventas</Link>
         </div>
       </nav>
       <header className="inventario-header">

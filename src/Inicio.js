@@ -1,6 +1,6 @@
-// src/Inicio.js
+// src/Inicio.js (ajustado para redirigir a rutas unificadas)
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import usuariosData from "./usuarios.json"; // Importa el JSON de usuarios
 import "./App.css";
 
@@ -33,9 +33,9 @@ function Inicio() {
     // Guardar usuario en localStorage
     localStorage.setItem("usuario", JSON.stringify(usuario));
 
-    // Redirigir según el rol
+    // Redirigir según el rol a rutas unificadas
     if (usuario.rol === "Vendedor") {
-      navigate("/ventasVista");
+      navigate("/ventas");
     } else if (usuario.rol === "Administrador") {
       navigate("/ventas");
     }

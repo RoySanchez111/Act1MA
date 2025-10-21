@@ -742,5 +742,24 @@ html, body {
     grid-template-columns: 80px 1fr 100px 100px; /* Reducir el ancho de las columnas */
     font-size: 0.85rem;
   }
+
+  /* estilos mínimos para el modal ticket si no usas estilos inline */
+.ticket-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.ticket-modal { background: #fff; padding: 16px; border-radius: 8px; width: 380px; max-height: 80vh; overflow-y: auto; box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+.pv-row { display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 8px; padding: 6px 0; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.03); }
+
   
+.ticket-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
 }

@@ -1,4 +1,4 @@
-// src/InventarioContext.js
+// src/InventarioContext.js (con reducirStock y aumentarStock agregados, como sugerí antes)
 import React, { createContext, useState, useEffect } from 'react';
 import productosData from './productos.json';
 
@@ -31,8 +31,24 @@ export const InventarioProvider = ({ children }) => {
     setProductos(prev => prev.filter(p => p.id !== id));
   };
 
+  const reducirStock = (id, cantidad) => {
+    const producto = productos.find(p => p.id === id);
+    if (producto && producto.stock >= cantidad) {
+      updateProducto(id, { stock: producto.stock - cantidad });
+    } else {
+      alert("Stock insuficiente");
+    }
+  };
+
+  const aumentarStock = (id, cantidad) => {
+    const producto = productos.find(p => p.id === id);
+    if (producto) {
+      updateProducto(id, { stock: producto.stock + cantidad });
+    }
+  };
+
   return (
-    <InventarioContext.Provider value={{ productos, addProducto, updateProducto, deleteProducto }}>
+    <InventarioContext.Provider value={{ productos, addProducto, updateProducto, deleteProducto, reducirStock, aumentarStock }}>
       {children}
     </InventarioContext.Provider>
   );
