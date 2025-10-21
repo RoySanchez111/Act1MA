@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Act1MA/static/css/main.432cf097.css",
+    "main.js": "/Act1MA/static/js/main.2ca88e3e.js",
+    "static/js/453.311b3dbc.chunk.js": "/Act1MA/static/js/453.311b3dbc.chunk.js",
+    "static/media/Inventario.jpg": "/Act1MA/static/media/Inventario.6e3c35e0c117112e2d14.jpg",
+    "index.html": "/Act1MA/index.html",
+    "main.432cf097.css.map": "/Act1MA/static/css/main.432cf097.css.map",
+    "main.2ca88e3e.js.map": "/Act1MA/static/js/main.2ca88e3e.js.map",
+    "453.311b3dbc.chunk.js.map": "/Act1MA/static/js/453.311b3dbc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.432cf097.css",
+    "static/js/main.2ca88e3e.js"
+  ]
+}
