@@ -42,12 +42,6 @@ function Inventario() {
     <div className="inventario-container">
       <nav className="navbar">
         <h2 className="punto-venta">SupMis</h2>
-        <div className="nav-botones">
-          <Link to="/actualizar" className="btn">Actualizar Productos</Link>
-          <Link to="/agregar" className="btn">Agregar Productos</Link>
-          <Link to="/eliminar" className="btn">Eliminar Productos</Link>
-          <Link to="/ventas" className="btn">Ventas</Link>
-        </div>
       </nav>
       <header className="inventario-header">
         <div className="header-overlay">
