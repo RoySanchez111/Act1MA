@@ -1,11 +1,10 @@
-// src/Inventario.js
 import { useState, useEffect, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaFilter } from "react-icons/fa";
 import { InventarioContext } from "./InventarioContext";
 import "./App.css";
 
-function Inventario() {
+function InventarioVista() {
   const { productos } = useContext(InventarioContext);
   const [mostrarFiltro, setMostrarFiltro] = useState(false);
   const [busqueda, setBusqueda] = useState("");
@@ -42,6 +41,9 @@ function Inventario() {
     <div className="inventario-container">
       <nav className="navbar">
         <h2 className="punto-venta">SupMis</h2>
+        <div className="nav-botones">
+          <Link to="/ventasVista" className="btn">Ventas</Link>
+        </div>
       </nav>
       <header className="inventario-header">
         <div className="header-overlay">
@@ -119,4 +121,4 @@ function Inventario() {
   );
 }
 
-export default Inventario;
+export default InventarioVista

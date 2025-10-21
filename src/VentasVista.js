@@ -1,21 +1,20 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { InventarioContext } from "./InventarioContext";
+import productosData from "./productos.json"; // Ajusta la ruta según tu proyecto
 
-export default function Ventas() {
-  const { productos, updateProducto } = useContext(InventarioContext);
+export default function VistaVentas() {
   const [venta, setVenta] = useState([]); // Productos agregados a la venta
   const [total, setTotal] = useState(0);
 
   // Función para buscar y agregar un producto
   const buscarProducto = () => {
     const id = prompt("Ingresa el ID del producto:");
-    const producto = productos.find((p) => p.id === parseInt(id));
+    const producto = productosData.find((p) => p.id === parseInt(id));
     if (!producto) return alert("Producto no encontrado.");
 
-    const cantidad = parseInt(prompt("¿Cuántas unidades quieres agregar?"), 10);
+    const cantidad = parseInt(prompt("Cantidad a agregar:"), 10);
     if (isNaN(cantidad) || cantidad <= 0) return alert("Cantidad inválida");
-    
+
     const precio = parseFloat(producto.precio.replace("$", ""));
     const item = { ...producto, cantidad, total: precio * cantidad };
 
@@ -39,20 +38,12 @@ export default function Ventas() {
   const cobrar = () => {
     if (venta.length === 0) return alert("No hay productos para cobrar.");
 
-    const pago = parseFloat(prompt(`Total a pagar: $${total.toFixed(2)}\nIngresa el monto recibido:`));
-    if (isNaN(pago) || pago < total) return alert("Monto insuficiente o inválido.");
+    const pago = parseFloat(
+      prompt(`Total a pagar: $${total.toFixed(2)}\nMonto recibido:`)
+    );
+    if (isNaN(pago) || pago < total) return alert("Monto insuficiente.");
 
-    const cambio = pago - total;
-    alert(`✅ Pago recibido\nCambio: $${cambio.toFixed(2)} M.N`);
-
-    // Actualizar el inventario restando el stock de cada producto vendido
-    venta.forEach((item) => {
-      const productoActual = productos.find((p) => p.id === item.id);
-      if (productoActual) {
-        updateProducto(item.id, { stock: productoActual.stock - item.cantidad });
-      }
-    });
-
+    alert(`✅ Pago recibido\nCambio: $${(pago - total).toFixed(2)} M.N`);
     setVenta([]);
     setTotal(0);
   };
@@ -62,7 +53,7 @@ export default function Ventas() {
       {/* ENCABEZADO */}
       <header className="pv-header">
         <div className="pv-brand">SupMis</div>
-        <Link to="/inventario" className="btn ventas-btn">
+        <Link to="/inventarioVista" className="btn ventas-btn">
           Inventario
         </Link>
       </header>
@@ -77,6 +68,7 @@ export default function Ventas() {
             <span>Cantidad</span>
             <span>Total</span>
           </div>
+
           <div className="pv-rows">
             {venta.length === 0 ? (
               <p style={{ padding: "1rem" }}>No hay productos agregados</p>

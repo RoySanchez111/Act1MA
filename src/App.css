@@ -232,9 +232,12 @@ html, body {
 }
 
 .tabla-responsive-wrapper {
- width: 100%;
+ width: 95%;
+ max-width: 1000px;
  overflow-x: auto; /* Habilita el scroll horizontal si la tabla es más ancha que la pantalla */
  -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
+ margin-left: auto;
+ margin-right: auto;
 }
 
 .tabla-inventario {
@@ -358,8 +361,12 @@ html, body {
    SECCIÓN: AGREGAR
 ======================================================= */
 .agregar-container {
-  padding: 140px 40px 60px;
+  font-family: Arial, sans-serif;
+  padding: 90px 40px 60px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .titulo-agregar {
@@ -390,7 +397,7 @@ html, body {
 ======================================================= */
 .eliminar-container {
   font-family: Arial, sans-serif;
-  padding: 140px 40px 60px;
+  padding: 90px 40px 60px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -443,7 +450,7 @@ html, body {
 ======================================================= */
 .actualizar-container {
   font-family: Arial, sans-serif;
-  padding: 140px 40px 60px;
+  padding: 90px 40px 60px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -626,6 +633,18 @@ html, body {
     text-align: center;
   }
 
+  .actualizar-container {
+    padding-top: 40px; 
+  }
+
+  .eliminar-container {
+    padding-top: 40px; 
+  }
+
+  .agregar-container {
+    padding-top: 40px; 
+  }
+
   .navbar {
     flex-direction: column; /* Apila el título y los botones */
     align-items: center;
@@ -723,4 +742,5 @@ html, body {
     grid-template-columns: 80px 1fr 100px 100px; /* Reducir el ancho de las columnas */
     font-size: 0.85rem;
   }
+  
 }
