@@ -13,7 +13,7 @@ import Historial from "./Historial";
 function App() {
   return (
     <InventarioProvider>
-      <Router>
+      <Router basename="/Act1MA">
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/inventario" element={<Inventario />} />
