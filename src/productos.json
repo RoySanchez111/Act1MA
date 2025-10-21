@@ -1,35 +1,36 @@
+
 [
   {
     "id": 1,
     "nombre": "Jamón de Pavo Virginia",
-    "precio": "$45",
+    "precio": "45",
     "descripcion": "Jamón muy rico de pavo",
     "categoria": "Alimento Procesado",
     "unidad": "290 Gramos",
     "stock": 50,
     "stockMinimo": 5,
-    "imagen": "/Images/jamonFud290g.webp"
+    "imagen": "https://i5.walmartimages.com.mx/gr/images/product-images/img_large/00750104000583L.jpg"
   },
   {
     "id": 2,
     "nombre": "Coca Cola",
-    "precio": "$25",
+    "precio": "25",
     "descripcion": "Refresco muy rico",
     "categoria": "Refrescos",
     "unidad": "600 ml",
     "stock": 50,
     "stockMinimo": 5,
-    "imagen": "/Images/cocacola600ml.webp"
+    "imagen": "https://i5.walmartimages.com/asr/d7f1e985-8b54-439e-aad4-4fb214147a6c.272052613216f6408c16b7021fa47878.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
   },
   {
     "id": 3,
     "nombre": "Coca Cola Light",
-    "precio": "$25",
+    "precio": "25",
     "descripcion": "Refresco light muy rico",
     "categoria": "Refrescos",
     "unidad": "600 ml",
     "stock": 30,
     "stockMinimo": 5,
-    "imagen": "/Images/cocacola600ml.webp"
+    "imagen": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/988a6560-98b7-4a65-b297-e26b977adc33.8132f735ea2603c684d36d747caa6945.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff"
   }
 ]
